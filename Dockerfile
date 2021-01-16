@@ -43,9 +43,6 @@ RUN file=chimera-1.15-linux_x86_64.bin; \
 
 ENV PATH=/chimera/bin:$PATH
 
-# Clean up environment
-RUN rm -rf /var/lib/apt/lists/*
-
 # Install jdock, mccsx, gpcrn, pdbm
 RUN wget -q https://github.com/stcmz/jdock/releases/download/v2.2.3b/jdock_linux_x64 -O /usr/bin/jdock && \
     wget -q https://github.com/stcmz/mccsx/releases/download/v1.1.2/mccsx_linux_x64 -O /usr/bin/mccsx && \
@@ -53,6 +50,9 @@ RUN wget -q https://github.com/stcmz/jdock/releases/download/v2.2.3b/jdock_linux
     wget -q https://github.com/stcmz/pdbm/releases/download/v1.0.4/pdbm_linux_x64 -O /usr/bin/pdbm && \
     chmod +x /usr/bin/jdock /usr/bin/mccsx /usr/bin/gpcrn /usr/bin/pdbm && \
     apt install -y libgdiplus
+
+# Clean up environment
+RUN rm -rf /var/lib/apt/lists/*
 
 # Install the script for fixing side chains
 RUN wget -q https://gist.githubusercontent.com/bougui505/c8599a6659b368c18b45bc321c49a0b1/raw/9af9c7df24f9b5213a5d4362e5f871ce5b51140f/incompleteSideChains.py
