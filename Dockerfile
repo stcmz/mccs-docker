@@ -46,7 +46,7 @@ ENV PATH=/chimera/bin:$PATH
 # Install jdock, mccsx, gpcrn, pdbm
 RUN wget -q https://github.com/stcmz/jdock/releases/download/v2.2.3b/jdock_linux_x64 -O /usr/bin/jdock && \
     wget -q https://github.com/stcmz/mccsx/releases/download/v1.1.2/mccsx_linux_x64 -O /usr/bin/mccsx && \
-    wget -q https://github.com/stcmz/gpcrn/releases/download/v1.0.4/gpcrn_linux_x64 -O /usr/bin/gpcrn && \
+    wget -q https://github.com/stcmz/gpcrn/releases/download/v1.0.5/gpcrn_linux_x64 -O /usr/bin/gpcrn && \
     wget -q https://github.com/stcmz/pdbm/releases/download/v1.0.4/pdbm_linux_x64 -O /usr/bin/pdbm && \
     chmod +x /usr/bin/jdock /usr/bin/mccsx /usr/bin/gpcrn /usr/bin/pdbm && \
     apt install -y libgdiplus
