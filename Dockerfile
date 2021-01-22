@@ -37,7 +37,7 @@ ENV PATH=$VEGADIR/Bin/Linux_x64:$PATH
 RUN file=chimera-1.15-linux_x86_64.bin; \
     wget -q https://www.cgl.ucsf.edu$(wget -q -O - --post-data "file=linux_x86_64%2F$file&choice=Accept" https://www.cgl.ucsf.edu/chimera/cgi-bin/secure/chimera-get.py | awk -v 'RS=http-equiv="[rR]efresh" *content="[0-9 ;]*[uU][rR][lL]=' -F '"' '/^\//{print $1;exit}') -O $file && \
     chmod +x $file && \
-    bash -c "./$file <<</chimera" && \
+    echo /chimera | ./$file && \
     apt install -y libgl1 libxft2 libxss1 && \
     rm -f $file
 
