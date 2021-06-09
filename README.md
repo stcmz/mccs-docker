@@ -33,6 +33,13 @@ To use scripts in this repository to install and configure the included third-pa
 * [Side Chain Fixing Script](https://gist.githubusercontent.com/bougui505/c8599a6659b368c18b45bc321c49a0b1/raw/9af9c7df24f9b5213a5d4362e5f871ce5b51140f/incompleteSideChains.py)
 
 
+## Platforms
+
+|Folder|Root Image|OS|
+|-|-|-|
+|[slim](https://github.com/stcmz/mccs-docker/tree/main/slim)|[debian:buster-slim](https://hub.docker.com/_/debian)| Debian GNU/Linux 10, code name Buster|
+
+
 ## Author
 
 [Maozi Chen]
