@@ -40,6 +40,44 @@ To use scripts in this repository to install and configure the included third-pa
 |[slim](https://github.com/stcmz/mccs-docker/tree/main/slim)|[debian:buster-slim](https://hub.docker.com/_/debian)| Debian GNU/Linux 10, code name Buster|
 
 
+## How to Build
+
+To build the image, one must first [install Docker](https://docs.docker.com/get-docker/). The Docker Desktop is full-featured with GUI support and runs on Windows and macOS while on Linux platforms the command line Docker Engine is provided.
+
+One can build the Docker image from a command line
+```
+docker build slim -t mccs
+```
+
+It usually takes a few minutes to build, varying by connection speed and computer performance.
+
+
+## Usage
+
+With the Docker image successfully built, one can start a container with
+```
+docker run --rm -it -v "$(pwd):/data" mccs
+```
+
+The MCCS tools run with molecular models. Via the `-v "$(pwd):/data"` argument, docker maps the current working directory to the `/data` directory in the container. Once the container launched, one can navigate to `/data` and perform the computation.
+```
+# In the container
+cd /data
+
+# Now you can use the tools against the molecular models located in your physical hard drive.
+# All MCCS related tools are immediately available and most can be invoked by name, e.g. jdock, mccsx.
+
+# Third-party software are invoked by the following commands.
+# Please refer to their official documentation for detailed usage.
+propka3
+obabel
+vega
+chimera --nogui
+
+# The side chain fixing script is located at ~/incompleteSideChains.py
+```
+
+
 ## Author
 
 [Maozi Chen]
