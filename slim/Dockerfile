@@ -21,11 +21,12 @@ RUN pip install propka
 RUN apt install -y openbabel
 
 # Install Vega CLI
+# Delete libssl.so and libcrypto.so because the system ships with newer version
 RUN file=Vega_3.2.1.33_Linux_x86-x64-ARM.tar.gz; \
     wget -q https://www.ddl.unimi.it/vega/packages/$file && \
     tar -zxf $file -C / && \
     chmod -R 755 /Vega/Bin/* && \
-    rm -f $file
+    rm -f $file /Vega/Bin/Linux_x64/libssl.so* /Vega/Bin/Linux_x64/libcrypto.so*
 
 ENV VEGADIR=/Vega
 ENV LD_LIBRARY_PATH=$VEGADIR/Bin/Linux_x64:$LD_LIBRARY_PATH
