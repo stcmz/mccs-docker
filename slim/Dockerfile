@@ -2,17 +2,17 @@ FROM python:3-slim
 
 WORKDIR /root
 
-# Install .net 5.0 runtime
+# Install .net 6.0 runtime
 RUN file=packages-microsoft-prod.deb; \
     apt update && \
     apt install -y wget && \
-    wget -q https://packages.microsoft.com/config/debian/10/$file -O $file && \
+    wget -q https://packages.microsoft.com/config/debian/11/$file -O $file && \
     dpkg -i $file && \
     rm -f $file && \
     apt update && \
     apt install -y apt-transport-https && \
     apt update && \
-    apt install -y dotnet-runtime-5.0
+    apt install -y dotnet-runtime-6.0
 
 # Install PROPKA
 RUN pip install propka
@@ -35,7 +35,7 @@ ENV PATH=$VEGADIR/Bin/Linux_x64:$PATH
 # Install chimera
 # Please read the official licensing document before installing:
 # https://www.cgl.ucsf.edu/chimera/docs/licensing.html
-RUN file=chimera-1.15-linux_x86_64.bin; \
+RUN file=chimera-1.16-linux_x86_64.bin; \
     wget -q https://www.cgl.ucsf.edu$(wget -q -O - --post-data "file=linux_x86_64%2F$file&choice=Accept" https://www.cgl.ucsf.edu/chimera/cgi-bin/secure/chimera-get.py | awk -v 'RS=http-equiv="[rR]efresh" *content="[0-9 ;]*[uU][rR][lL]=' -F '"' '/^\//{print $1;exit}') -O $file && \
     chmod +x $file && \
     echo /chimera | ./$file && \
