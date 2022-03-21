@@ -44,15 +44,15 @@ RUN file=chimera-1.16-linux_x86_64.bin; \
 
 ENV PATH=/chimera/bin:$PATH
 
-# Install latest MCCS toolchain - jdock, mccsx, gpcrn, pdbm, pdbget, pdbqtf, pdbrn
+# Install MCCS toolchain - jdock, mccsx, gpcrn, pdbm, pdbget, pdbqtf, pdbrn
 RUN cd /usr/local/bin && \
-    wget -q https://github.com/stcmz/jdock/releases/latest/download/jdock_linux_x64 -O jdock && \
-    wget -q https://github.com/stcmz/mccsx/releases/latest/download/mccsx_linux_x64 -O mccsx && \
-    wget -q https://github.com/stcmz/gpcrn/releases/latest/download/gpcrn_linux_x64 -O gpcrn && \
-    wget -q https://github.com/stcmz/pdbm/releases/latest/download/pdbm_linux_x64 -O pdbm && \
-    wget -q https://github.com/stcmz/pdbget/releases/latest/download/pdbget_linux_x64 -O pdbget && \
-    wget -q https://github.com/stcmz/pdbqtf/releases/latest/download/pdbqtf_linux_x64 -O pdbqtf && \
-    wget -q https://github.com/stcmz/pdbrn/releases/latest/download/pdbrn_linux_x64 -O pdbrn && \
+    wget -q https://github.com/stcmz/jdock/releases/v2.2.3c/download/jdock_linux_x64 -O jdock && \
+    wget -q https://github.com/stcmz/mccsx/releases/v1.4.2/download/mccsx_linux_x64 -O mccsx && \
+    wget -q https://github.com/stcmz/gpcrn/releases/v1.0.8/download/gpcrn_linux_x64 -O gpcrn && \
+    wget -q https://github.com/stcmz/pdbm/releases/v1.1.0/download/pdbm_linux_x64 -O pdbm && \
+    wget -q https://github.com/stcmz/pdbget/releases/v1.0.3/download/pdbget_linux_x64 -O pdbget && \
+    wget -q https://github.com/stcmz/pdbqtf/releases/v1.1/download/pdbqtf_linux_x64 -O pdbqtf && \
+    wget -q https://github.com/stcmz/pdbrn/releases/v1.0.1/download/pdbrn_linux_x64 -O pdbrn && \
     chmod +x jdock mccsx gpcrn pdbm pdbget pdbqtf pdbrn && \
     apt install -y libgdiplus
 
